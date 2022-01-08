@@ -42,9 +42,12 @@ class ExtWSClient {
 
 	disconnect () {
 		if (this._emitter instanceof EventEmitter) {
-			this._emitter.emit('disconnect');
-			this._emitter.removeAllListeners();
+			const emitter = this._emitter;
+
 			this._emitter = null;
+
+			emitter.emit('disconnect');
+			emitter.removeAllListeners();
 		}
 
 		this._driver.clients.delete(
