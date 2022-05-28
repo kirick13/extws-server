@@ -3,7 +3,8 @@ const EventEmitter = require('events');
 const nanoid       = require('nanoid').customAlphabet('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', 16);
 
 const { PAYLOAD_TYPE,
-        buildPayload } = require('./data');
+        buildPayload,
+        getPayload  } = require('./data');
 
 class ExtWSClient {
 	constructor () {
@@ -38,6 +39,15 @@ class ExtWSClient {
 
 	leave () {
 		throw new Error('Method "leave(group_id)" must be defined by ExtWSClient extension.');
+	}
+
+	send (arg0, arg1) {
+		this.emit(
+			getPayload(
+				arg0,
+				arg1,
+			),
+		);
 	}
 
 	disconnect () {

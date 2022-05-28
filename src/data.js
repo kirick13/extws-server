@@ -24,11 +24,28 @@ const buildPayload = exports.buildPayload = (payload_type, data, event_type) => 
 
 	return payload;
 };
-exports.buildMessagePayload = (data, event_type) => buildPayload(
+const buildMessagePayload = exports.buildMessagePayload = (data, event_type) => buildPayload(
 	PAYLOAD_TYPE.MESSAGE,
 	data,
 	event_type,
 );
+
+exports.getPayload = (arg0, arg1) => {
+	let event_type = arg0;
+	let data = arg1;
+	if (
+		undefined === arg1
+		&& typeof arg0 !== 'string'
+	) {
+		data = arg0;
+		event_type = undefined;
+	}
+
+	return buildMessagePayload(
+		data,
+		event_type,
+	);
+};
 
 const JSON_START = new Set([ '[', '{' ]);
 exports.parsePayload = (payload) => {

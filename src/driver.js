@@ -24,7 +24,7 @@ class ExtWSDriver {
 	}
 
 	_onConnect (client) {
-		// console.log('client connected', client);
+		// console.log(new Date(), 'client connected', client);
 
 		this.clients.set(
 			client.id,
@@ -50,13 +50,15 @@ class ExtWSDriver {
 	}
 
 	_onMessage (client, payload) {
-		// console.log('got message', client);
+		// console.log(new Date(), 'got message', client);
 
 		client._ts_last_active = Date.now();
 
-		const { type,
-		        data,
-		        event_type } = parsePayload(payload);
+		const {
+			type,
+			data,
+			event_type,
+		} = parsePayload(payload);
 
 		switch (type) {
 			case PAYLOAD_TYPE.PING: {

@@ -1,7 +1,10 @@
 {
 	"name": "extws-server",
-	"version": "1.0.0-beta.115",
+	"version": "1.0.0",
 	"description": "Simple ans powerful WebSocket server.",
+	"publishConfig": {
+		"--tag": "beta"
+	},
 	"main": "src/main.js",
 	"engines": {
 		"node": ">10.0.0"
@@ -21,9 +24,9 @@
 		"websocket",
 		"ws",
 		"networking",
-		"uwebsockets",
 		"extws",
-		"server"
+		"server",
+		"rtc"
 	],
 	"author": "Daniil Kirichenko (https://twitter.com/kirickme)",
 	"license": "MIT",

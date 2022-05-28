@@ -1,25 +1,8 @@
 
 const { GROUP_BROADCAST,
         GROUP_PREFIX,
-        buildMessagePayload } = require('./data');
-const ExtWSClient             = require('./client');
-
-const getPayload = (arg0, arg1) => {
-	let event_type = arg0;
-	let data = arg1;
-	if (
-		undefined === arg1
-		&& typeof arg0 !== 'string'
-	) {
-		data = arg0;
-		event_type = undefined;
-	}
-
-	return buildMessagePayload(
-		data,
-		event_type,
-	);
-};
+		getPayload     } = require('./data');
+const ExtWSClient        = require('./client');
 
 class ExtWS {
 	constructor (
