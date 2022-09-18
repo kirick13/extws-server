@@ -6,7 +6,7 @@ const { IDLE_TIMEOUT,
         buildPayload,
         parsePayload } = require('./data');
 
-const IDLE_TIMEOUT_PING_MS = (IDLE_TIMEOUT * 0.94) * 1e3;
+const IDLE_TIMEOUT_PING_MS = (IDLE_TIMEOUT - 5) * 1e3;
 const IDLE_TIMEOUT_DISCONNECT_MS = (IDLE_TIMEOUT + 5) * 1e3;
 
 class ExtWSDriver {
@@ -19,7 +19,7 @@ class ExtWSDriver {
 			() => {
 				this._clearBrokenClients();
 			},
-			IDLE_TIMEOUT * 1e3,
+			(IDLE_TIMEOUT / 3) * 1e3,
 		);
 	}
 

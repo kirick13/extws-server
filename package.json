@@ -1,9 +1,9 @@
 {
 	"name": "extws-server",
-	"version": "1.0.0",
+	"version": "1.0.1-beta.1",
 	"description": "Simple ans powerful WebSocket server.",
 	"publishConfig": {
-		"--tag": "beta"
+		"tag": "beta"
 	},
 	"main": "src/main.js",
 	"engines": {
