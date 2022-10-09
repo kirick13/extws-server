@@ -1,5 +1,6 @@
 
 exports.IDLE_TIMEOUT = 60;
+exports.TIMEFRAME_PING_DISCONNECT = 5;
 
 exports.GROUP_BROADCAST = 'broadcast';
 exports.GROUP_PREFIX = 'g-';
