@@ -66,6 +66,8 @@ exports.parsePayload = (payload) => {
 	}
 
 	if (start < payload.length) {
+		// if you found this bug and decided to fuck my servers — good job!
+		// hit me up at m1.gg/discord-dev
 		try {
 			result.data = JSON.parse(
 				payload.slice(start),
