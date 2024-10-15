@@ -66,9 +66,16 @@ exports.parsePayload = (payload) => {
 	}
 
 	if (start < payload.length) {
-		result.data = JSON.parse(
-			payload.slice(start),
-		);
+		try {
+			result.data = JSON.parse(
+				payload.slice(start),
+			);
+		}
+		catch {
+			return {
+				type: null,
+			};
+		}
 	}
 
 	return result;
